@@ -1,4 +1,4 @@
-export const HeartArr: number [][] = [
+export const HeartArr: number[][] = [
   [
     3,
     3,
@@ -751,7 +751,7 @@ export const HeartArr: number [][] = [
     3,
     3,
     3,
-    1,
+    3,
     1,
     3,
     3,
@@ -1975,4 +1975,4 @@ export const HeartArr: number [][] = [
     3,
     3
   ]
-];
+]

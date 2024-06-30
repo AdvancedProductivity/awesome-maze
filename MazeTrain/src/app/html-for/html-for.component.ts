@@ -145,6 +145,7 @@ function getDirection(x, y, instance, lookUp, haveBeen, steps) {
 
     if (this.lookUpWall(randomDirection)) {
       this.robotPosition.isInWall = 'red';
+      this.funRunning = false;
     } else {
       this.robotPosition.isInWall = 'blue';
 
