@@ -39,5 +39,9 @@
     机器人速度
     <nz-slider [(ngModel)]="delay" [nzMin]="0" [nzMax]="1000"></nz-slider>
   </div>
-  <button nz-button nzType="primary">重新开始</button>
+  <button nz-button nzType="primary" (click)="restart()">重新开始</button>
+  <div style="height: 10px"></div>
+  <button nz-button nzType="primary" (click)="run()">
+    {{running?'😇停!':'😇跑！'}}
+  </button>
 </div>

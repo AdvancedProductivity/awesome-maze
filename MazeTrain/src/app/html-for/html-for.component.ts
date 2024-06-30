@@ -11,19 +11,25 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
   cellSize: number = 20; // 默认每个格子的大小
   constructor() { }
   finished = false;
+  running = false;
   delay= 20;
   collision = 0;
   walks = 0;
 
   ngAfterViewInit(): void {
-
   }
 
   ngOnInit(): void {
-
+    this.finished = false;
+    this.running = false;
+    this.delay= 20;
+    this.collision = 0;
+    this.walks = 0;
     const generator = new PrimGenerator();
     const maze = generator.generateMaze();
     this.grid = maze.getCells();
+    this.robotPosition = { x: 1, y: 1, isInWall: 'blue', direction: 'east' }; // Initial position
+
     (window as any).toMap = () => {
       return this.grid;
     }
@@ -48,13 +54,15 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
   robotPosition = { x: 1, y: 1, isInWall: 'blue', direction: 'east' }; // Initial position
 
   moveRobot(): void {
+    if (!this.running) {
+      return;
+    }
     if (this.finished) {
       return;
     }
     this.walks++;
     const directions = ['north', 'east', 'south', 'west'];
     const randomDirection = directions[Math.floor(Math.random() * 4)];
-    console.log('direction:', randomDirection)
     this.robotPosition.direction = randomDirection;
 
     switch (randomDirection) {
@@ -102,6 +110,8 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
 
     if ('green' === this.robotPosition.isInWall) {
       this.finished = true;
+      this.running = false;
+      console.log('Robot reached the end!')
     }else if ('red' === this.robotPosition.isInWall) {
       this.collision++;
     }
@@ -136,4 +146,14 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
   }
 
 
+  restart() {
+    this.ngOnInit();
+  }
+
+  run() {
+    this.running = !this.running;
+    if (this.running) {
+      this.moveRobot();
+    }
+  }
 }
