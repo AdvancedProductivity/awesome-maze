@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {PrimGenerator} from "../api";
 import {fr_BE} from "ng-zorro-antd/i18n";
 import {HeartArr} from "./heart";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-html-for',
@@ -11,18 +12,30 @@ import {HeartArr} from "./heart";
 export class HtmlForComponent implements OnInit ,AfterViewInit{
   grid: number[][] = [];
   cellSize: number = 20; // 默认每个格子的大小
-  constructor() { }
   finished = false;
   running = false;
   delay= 20;
   collision = 0;
   mazeSize = 10;
   walks = 0;
+  connectCollection = false;
+  str0 = ''
+  str1 = ''
 
   ngAfterViewInit(): void {
   }
 
+  constructor(private route: ActivatedRoute) {
+  }
+
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const query = params['q'];
+      this.connectCollection = query.indexOf('__') > -1;
+      const vs = query.split('__');
+      this.str0 = vs[0];
+      this.str1 = vs[1];
+    });
     this.finished = false;
     this.running = false;
     this.delay= 20;
