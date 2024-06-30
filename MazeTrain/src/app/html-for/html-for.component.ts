@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {PrimGenerator} from "../api";
+import {fr_BE} from "ng-zorro-antd/i18n";
 
 @Component({
   selector: 'app-html-for',
@@ -159,4 +160,6 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
       this.moveRobot();
     }
   }
+
+  protected readonly fr_BE = fr_BE;
 }

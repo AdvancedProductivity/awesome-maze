@@ -29,15 +29,22 @@
 
 </div>
 <div style="position: absolute;top: 0;right: 0;width: 260px;">
-  <p>目前是吭哧吭哧撞墙</p>
+  <p>
+    <a target="_blank" href="https://github.com/AdvancedProductivity/awesome-maze" style="font-size: 36px">
+      <span nz-icon nzType="github" nzTheme="outline"></span>
+    </a>
+    目前是吭哧吭哧撞墙<br>
+    简称乱披风撞法
+  </p>
+  <a href="../canvas" target="_blank">Canvas 实现</a>
   <p>撞墙次数 {{collision}}</p>
   <p>步行数 {{collision}}</p>
   <div style="">
-    迷宫大小
+    迷宫大小: {{mazeSize}}
     <nz-slider [(ngModel)]="mazeSize" [nzMin]="10" [nzMax]="130 "></nz-slider>
   </div>
   <div>
-    机器人速度
+    机器人速度: {{delay}}
     <nz-slider [(ngModel)]="delay" [nzMin]="0" [nzMax]="1000"></nz-slider>
   </div>
   <button nz-button nzType="primary" (click)="restart()">重新开始</button>

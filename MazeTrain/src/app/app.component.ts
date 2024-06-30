@@ -107,7 +107,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    const generator = new PrimGenerator();
+    const generator = new PrimGenerator(100);
     const maze = generator.generateMaze();
     this.grid = maze.getCells();
     (window as any).toMap = () => {

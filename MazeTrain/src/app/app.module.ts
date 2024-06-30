@@ -16,6 +16,7 @@ import { HtmlForComponent } from './html-for/html-for.component';
 import { RootComponent } from './root/root.component';
 registerLocaleData(en);
 import { NzSliderModule } from 'ng-zorro-antd/slider';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NzSliderModule } from 'ng-zorro-antd/slider';
     BrowserModule,
     AppRoutingModule,
     NzSliderModule,
+    NzIconModule,
     FormsModule,
     HttpClientModule,
     NzButtonModule,
