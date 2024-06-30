@@ -10,13 +10,13 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./html-for.component.less']
 })
 export class HtmlForComponent implements OnInit ,AfterViewInit{
-  grid: number[][] = [];
+  grid: number[][] = HeartArr;
   cellSize: number = 20; // 默认每个格子的大小
   finished = false;
   running = false;
   delay= 20;
   collision = 0;
-  mazeSize = 10;
+  mazeSize = 40;
   walks = 0;
   connectCollection = false;
   str0 = ''
@@ -41,9 +41,6 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
     this.delay= 20;
     this.collision = 0;
     this.walks = 0;
-    const generator = new PrimGenerator(this.mazeSize);
-    const maze = generator.generateMaze();
-    this.grid = HeartArr;
     this.robotPosition = { x: 1, y: 1, isInWall: 'blue', direction: 'east' }; // Initial position
 
     (window as any).toMap = () => {
@@ -155,6 +152,9 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
 
   restart() {
     this.ngOnInit();
+    const generator = new PrimGenerator(this.mazeSize);
+    const maze = generator.generateMaze();
+    this.grid = maze.getCells();
   }
 
   run() {
