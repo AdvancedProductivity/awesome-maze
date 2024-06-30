@@ -14,6 +14,7 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
   running = false;
   delay= 20;
   collision = 0;
+  mazeSize = 10;
   walks = 0;
 
   ngAfterViewInit(): void {
@@ -25,7 +26,7 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
     this.delay= 20;
     this.collision = 0;
     this.walks = 0;
-    const generator = new PrimGenerator();
+    const generator = new PrimGenerator(this.mazeSize);
     const maze = generator.generateMaze();
     this.grid = maze.getCells();
     this.robotPosition = { x: 1, y: 1, isInWall: 'blue', direction: 'east' }; // Initial position

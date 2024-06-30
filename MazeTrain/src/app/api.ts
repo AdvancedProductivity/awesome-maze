@@ -49,7 +49,9 @@ export class PrimGenerator {
   private primGrid: CellType[][] = [];
   private frontierList: Point[] = [];
 
-  constructor() {
+  constructor(size: number = 10) {
+    this.mazeWidth = size;
+    this.mazeHeight = size;
     // Initialize configuration panel or other setup if needed
   }
 
