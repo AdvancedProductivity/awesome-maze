@@ -110,6 +110,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     const generator = new PrimGenerator();
     const maze = generator.generateMaze();
     this.grid = maze.getCells();
+    (window as any).toMap = () => {
+      return this.grid;
+    }
 
 
     const throttled = this.render.pipe(
@@ -181,5 +184,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     const y = Math.floor(clientY / cellSize);
     return {x, y};
   }
+
 
 }

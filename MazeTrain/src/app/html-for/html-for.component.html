@@ -1,0 +1,13 @@
+<div style="width: 800px; height: 100%; overflow: scroll;display: flex">
+  <div class="chessboard">
+    <div *ngFor="let row of grid; let i = index" class="row">
+      <div *ngFor="let cell of row; let j = index"
+           class="cell"
+           [style.background-color]="getBackgroundColor(cell)"
+           [style.width.px]="cellSize"
+           [style.height.px]="cellSize">
+      </div>
+    </div>
+  </div>
+
+</div>

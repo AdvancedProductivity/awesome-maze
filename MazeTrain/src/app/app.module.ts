@@ -12,11 +12,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import {MONACO_PATH, MonacoEditorModule} from "@materia-ui/ngx-monaco-editor";
+import { HtmlForComponent } from './html-for/html-for.component';
+import { RootComponent } from './root/root.component';
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HtmlForComponent,
+    RootComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,6 @@ registerLocaleData(en);
       useValue: 'https://unpkg.com/monaco-editor@0.24.0/min/vs'
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [RootComponent]
 })
 export class AppModule { }
