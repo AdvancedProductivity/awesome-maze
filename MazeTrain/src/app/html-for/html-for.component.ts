@@ -1,77 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {PrimGenerator} from "../api";
 
-// TriangleManager.ts
-class TriangleManager {
-  private canvas: HTMLCanvasElement;
-  private ctx: CanvasRenderingContext2D;
-  private x1: number;
-  private y1: number;
-  private x2: number;
-  private y2: number;
-  private x3: number;
-  private y3: number;
-  private color: string;
-
-  constructor(canvasId: string) {
-    this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
-    this.ctx = this.canvas.getContext('2d')!;
-    this.x1 = 0;
-    this.y1 = 0;
-    this.x2 = 0;
-    this.y2 = 0;
-    this.x3 = 0;
-    this.y3 = 0;
-    this.color = 'red';
-  }
-
-  private calculateVertices(x: number, y: number, offset: number, direction: string): void {
-    switch (direction) {
-      case 'east':
-        this.x1 = x;
-        this.y1 = y;
-        this.x2 = x;
-        this.y2 = y + offset;
-        this.x3 = x + offset;
-        this.y3 = y + (offset / 2);
-        break;
-      // 可以根据需要添加其他方向的计算逻辑
-      default:
-        break;
-    }
-  }
-
-  init(x: number, y: number, offset: number, direction: string, color: string): void {
-    this.color = color;
-    this.calculateVertices(x, y, offset, direction);
-    this.draw();
-  }
-
-  private draw(): void {
-    const ctx = this.ctx;
-
-    // 清除之前的内容
-    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-    // 开始绘制新的三角形
-    ctx.beginPath();
-    ctx.moveTo(this.x1, this.y1);
-    ctx.lineTo(this.x2, this.y2);
-    ctx.lineTo(this.x3, this.y3);
-    ctx.closePath();
-
-    // 填充三角形
-    ctx.fillStyle = this.color;
-    ctx.fill();
-  }
-
-  update(x: number, y: number, offset: number, direction: string, color: string): void {
-    this.color = color;
-    this.calculateVertices(x, y, offset, direction);
-    this.draw(); // 重新绘制更新后的三角形
-  }
-}
-
 @Component({
   selector: 'app-html-for',
   templateUrl: './html-for.component.html',
@@ -88,13 +17,6 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
 
   ngAfterViewInit(): void {
 
-// 使用示例：
-    const triangleManager = new TriangleManager('myCanvas'); // 创建 TriangleManager 实例
-    triangleManager.init(1, 1, 20, 'east', 'blue'); // 初始化一个三角形
-// 等等需要更新时：
-//     setTimeout(() => {
-//       triangleManager.update(100, 100, 30, 'east', 'green'); // 更新三角形的位置和颜色
-//     }, 2000); // 示例：2秒后更新
   }
 
   ngOnInit(): void {
@@ -105,7 +27,7 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
     (window as any).toMap = () => {
       return this.grid;
     }
-    this.grid[this.grid.length-1][this.grid.length-1] = 5
+    this.grid[this.grid.length-2][this.grid[this.grid.length-2].length-2] = 5
     this.moveRobot();
   }
 
@@ -114,6 +36,8 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
     switch(value) {
       case 1:
         return 'rgb(245, 245, 245)';
+      case 5:
+        return 'rgb(89, 245, 245)';
       case 2:
         return 'rgb(180, 180, 180)';
       default:
