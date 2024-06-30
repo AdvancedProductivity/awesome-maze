@@ -15,6 +15,7 @@ import {MONACO_PATH, MonacoEditorModule} from "@materia-ui/ngx-monaco-editor";
 import { HtmlForComponent } from './html-for/html-for.component';
 import { RootComponent } from './root/root.component';
 registerLocaleData(en);
+import { NzSliderModule } from 'ng-zorro-antd/slider';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ registerLocaleData(en);
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NzSliderModule,
     FormsModule,
     HttpClientModule,
     NzButtonModule,

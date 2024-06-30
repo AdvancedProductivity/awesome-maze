@@ -6,8 +6,37 @@
            [style.background-color]="getBackgroundColor(cell)"
            [style.width.px]="cellSize"
            [style.height.px]="cellSize">
+
+        <!-- 机器人位置，如果是撞墙显示红色三角形 -->
+        <div id="robot" *ngIf="isRobotPosition(i, j)" class="robot">
+          <svg *ngIf="robotPosition.direction == 'north'" width="20" height="20">
+            <polygon points="0,20 10,0 20,20" [style.fill]="robotPosition.isInWall" />
+          </svg>
+          <svg width="20" height="20" *ngIf="robotPosition.direction=='east'">
+            <polygon points="0,0 20,10 0,20" [style.fill]="robotPosition.isInWall" />
+          </svg>
+          <svg width="20" height="20" *ngIf="robotPosition.direction=='south'">
+            <polygon points="0,0 10,20 20,0" [style.fill]="robotPosition.isInWall" />
+          </svg>
+          <svg width="20" height="20" *ngIf="robotPosition.direction=='west'">
+            <polygon points="20,0 0,10 20,20" [style.fill]="robotPosition.isInWall" />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
 
+
+</div>
+<div style="position: absolute;top: 0;right: 0;width: 260px;">
+  <p>撞墙次数 {{collision}}</p>
+  <p>步行数 {{collision}}</p>
+  <div style="">
+    迷宫大小
+    <nz-slider [nzMin]="10" [nzMax]="100"></nz-slider>
+  </div>
+  <div>
+    机器人速度
+    <nz-slider [(ngModel)]="delay" [nzMin]="0" [nzMax]="1000"></nz-slider>
+  </div>
 </div>
