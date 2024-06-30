@@ -62,14 +62,14 @@ function getDirection(x, y, instance, lookUp, haveBeen, steps) {
 这个迷宫可以逗朋友开心的，可以在网页输入一个 `query` 参数，然后分享给朋友，打开链接的人会看到您设置的文本。
 
 例如：
-```HTTP
+```shell
 https://advancedproductivity.github.io/awesome-maze/#/html?q=我已经碰壁__次了，怎么还不能走进你的心里。
 ```
 
 请注意，两个连续的下划线`__`会被替换成一个组件参数，如下图：
 
 
-<img src="./docs/images/img_1.png.png">
+<img src="./docs/images/img_1.png">
 
 
 ## 后续

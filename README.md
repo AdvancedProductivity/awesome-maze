@@ -62,7 +62,7 @@ You can copy it and compile it on the webpage to see how the robot moves.
 This maze can amuse your friends. You can enter a `query` parameter in the webpage and share it with your friends. The person who opens the link will see the text you set.
 
 For example:
-```HTTP
+```shell
 https://advancedproductivity.github.io/awesome-maze/#/html?q=I have hit the wall __ times, why can't I get into your heart.
 ```
 Note: url encoder
