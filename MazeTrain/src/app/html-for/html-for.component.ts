@@ -58,7 +58,7 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
       case 5:
         return 'rgb(89, 245, 245)';
       case 2:
-        return 'rgb(180, 180, 180)';
+        return 'orange';
       default:
         return 'rgb(100, 100, 100)';
     }
