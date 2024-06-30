@@ -5,7 +5,7 @@ import {AppComponent} from "./app.component";
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/canvas', pathMatch: 'full' }, // 默认重定向到 home
+  { path: '', redirectTo: '/html', pathMatch: 'full' }, // 默认重定向到 home
   { path: 'html', component: HtmlForComponent },
   { path: 'canvas', component: AppComponent }
 ];

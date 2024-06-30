@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {PrimGenerator} from "../api";
 import {fr_BE} from "ng-zorro-antd/i18n";
+import {HeartArr} from "./heart";
 
 @Component({
   selector: 'app-html-for',
@@ -29,7 +30,7 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
     this.walks = 0;
     const generator = new PrimGenerator(this.mazeSize);
     const maze = generator.generateMaze();
-    this.grid = maze.getCells();
+    this.grid = HeartArr;
     this.robotPosition = { x: 1, y: 1, isInWall: 'blue', direction: 'east' }; // Initial position
 
     (window as any).toMap = () => {
@@ -139,17 +140,6 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
     return this.robotPosition.x === col && this.robotPosition.y === row;
   }
 
-  getTriangleStyles(): any {
-    // 根据机器人的方向返回三角形的样式
-    // 这里假设机器人朝右移动
-    return {
-      left: `${this.robotPosition.x * this.cellSize}px`,
-      top: `${this.robotPosition.y * this.cellSize}px`,
-      transform: 'rotate(270deg)' // 调整三角形的方向，这里假设朝右
-    };
-  }
-
-
   restart() {
     this.ngOnInit();
   }
@@ -161,5 +151,11 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
     }
   }
 
-  protected readonly fr_BE = fr_BE;
+  rev(i: number, j: number) {
+    if (this.grid[i][j] == 3) {
+      this.grid[i][j] = 1;
+    }else {
+      this.grid[i][j] = 3;
+    }
+  }
 }

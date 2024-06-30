@@ -1,55 +1,64 @@
-<div style="width: 800px; height: 100%; overflow: scroll;display: flex">
-  <div class="chessboard">
-    <div *ngFor="let row of grid; let i = index" class="row">
-      <div *ngFor="let cell of row; let j = index"
-           class="cell"
-           [style.background-color]="getBackgroundColor(cell)"
-           [style.width.px]="cellSize"
-           [style.height.px]="cellSize">
+<div style="display: flex">
+  <div style="flex: 1;display: flex;overflow: auto;padding-left: 20px">
+    <div class="chessboard">
+      <div *ngFor="let row of grid; let i = index" class="row">
+        <div *ngFor="let cell of row; let j = index"
+             class="cell"
+             [style.background-color]="getBackgroundColor(cell)"
+             [style.width.px]="cellSize"
+             [style.height.px]="cellSize">
 
-        <!-- 机器人位置，如果是撞墙显示红色三角形 -->
-        <div id="robot" *ngIf="isRobotPosition(i, j)" class="robot">
-          <svg *ngIf="robotPosition.direction == 'north'" width="20" height="20">
-            <polygon points="0,20 10,0 20,20" [style.fill]="robotPosition.isInWall" />
-          </svg>
-          <svg width="20" height="20" *ngIf="robotPosition.direction=='east'">
-            <polygon points="0,0 20,10 0,20" [style.fill]="robotPosition.isInWall" />
-          </svg>
-          <svg width="20" height="20" *ngIf="robotPosition.direction=='south'">
-            <polygon points="0,0 10,20 20,0" [style.fill]="robotPosition.isInWall" />
-          </svg>
-          <svg width="20" height="20" *ngIf="robotPosition.direction=='west'">
-            <polygon points="20,0 0,10 20,20" [style.fill]="robotPosition.isInWall" />
-          </svg>
+          <!-- 机器人位置，如果是撞墙显示红色三角形 -->
+          <div id="robot" *ngIf="isRobotPosition(i, j)" class="robot">
+            <svg *ngIf="robotPosition.direction == 'north'" width="20" height="20">
+              <polygon points="0,20 10,0 20,20" [style.fill]="robotPosition.isInWall" />
+            </svg>
+            <svg width="20" height="20" *ngIf="robotPosition.direction=='east'">
+              <polygon points="0,0 20,10 0,20" [style.fill]="robotPosition.isInWall" />
+            </svg>
+            <svg width="20" height="20" *ngIf="robotPosition.direction=='south'">
+              <polygon points="0,0 10,20 20,0" [style.fill]="robotPosition.isInWall" />
+            </svg>
+            <svg width="20" height="20" *ngIf="robotPosition.direction=='west'">
+              <polygon points="20,0 0,10 20,20" [style.fill]="robotPosition.isInWall" />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div style="width: calc(100% - 1040px)">
+    <div style="width: 100%;height: 350px;margin-right: 20px">
+      <div class="notice-board">
+        <h1>
+          <a target="_blank" href="https://github.com/AdvancedProductivity/awesome-maze" style="font-size: 36px">
+            <span nz-icon nzType="github" nzTheme="outline"></span>
+          </a>&nbsp;&nbsp;&nbsp;&nbsp;🧐See Here🤖</h1>
+        <p>这是公告的内容</p>
+      </div>
 
-
-</div>
-<div style="position: absolute;top: 0;right: 0;width: 260px;">
-  <p>
-    <a target="_blank" href="https://github.com/AdvancedProductivity/awesome-maze" style="font-size: 36px">
-      <span nz-icon nzType="github" nzTheme="outline"></span>
-    </a>
-    目前是吭哧吭哧撞墙<br>
-    简称乱披风撞法
-  </p>
-  <a href="https://advancedproductivity.github.io/awesome-maze/#/canvas" target="_blank">Canvas 实现</a>
-  <p>撞墙次数 {{collision}}</p>
-  <p>步行数 {{collision}}</p>
-  <div style="">
-    迷宫大小: {{mazeSize}}
-    <nz-slider [(ngModel)]="mazeSize" [nzMin]="10" [nzMax]="130 "></nz-slider>
+    </div>
+    <div>
+      <p>
+        目前是吭哧吭哧撞墙<br>
+        简称乱披风撞法
+      </p>
+      <a href="https://advancedproductivity.github.io/awesome-maze/#/canvas" target="_blank">Canvas 实现</a>
+      <p>撞墙次数 {{collision}}</p>
+      <p>步行数 {{collision}}</p>
+      <div style="">
+        迷宫大小: {{mazeSize}}
+        <nz-slider [(ngModel)]="mazeSize" [nzMin]="10" [nzMax]="130 "></nz-slider>
+      </div>
+      <div>
+        机器人速度: {{delay}}
+        <nz-slider [(ngModel)]="delay" [nzMin]="0" [nzMax]="1000"></nz-slider>
+      </div>
+      <button nz-button nzType="primary" (click)="restart()">重新开始</button>
+      <div style="height: 10px"></div>
+      <button nz-button nzType="primary" (click)="run()">
+        {{running?'😇停!':'😇跑！'}}
+      </button>
+    </div>
   </div>
-  <div>
-    机器人速度: {{delay}}
-    <nz-slider [(ngModel)]="delay" [nzMin]="0" [nzMax]="1000"></nz-slider>
-  </div>
-  <button nz-button nzType="primary" (click)="restart()">重新开始</button>
-  <div style="height: 10px"></div>
-  <button nz-button nzType="primary" (click)="run()">
-    {{running?'😇停!':'😇跑！'}}
-  </button>
 </div>
