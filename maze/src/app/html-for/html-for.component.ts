@@ -235,11 +235,12 @@ function getDirection(x, y, instance, lookUp, haveBeen, steps) {
   }
 
   rev(i: number, j: number) {
-    if (this.grid[i][j] == 3) {
-      this.grid[i][j] = 1;
-    }else {
-      this.grid[i][j] = 3;
-    }
+    return;
+    // if (this.grid[i][j] == 3) {
+    //   this.grid[i][j] = 1;
+    // }else {
+    //   this.grid[i][j] = 3;
+    // }
   }
 
   private funRuned() {
