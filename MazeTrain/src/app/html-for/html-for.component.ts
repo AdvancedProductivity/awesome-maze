@@ -70,9 +70,9 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
         if (this.grid[this.robotPosition.y - 1][this.robotPosition.x] !== 3) {
           this.robotPosition.y--;
           this.robotPosition.isInWall = 'blue';
-        }else if (this.grid[this.robotPosition.y - 1][this.robotPosition.x] == 5){
-          this.robotPosition.isInWall = 'green';
-        }else {
+         if (this.grid[this.robotPosition.y - 1][this.robotPosition.x] == 5) {
+           this.robotPosition.isInWall = 'green';
+         }}else {
           this.robotPosition.isInWall = 'red';
         }
         break;
@@ -80,8 +80,9 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
         if (this.grid[this.robotPosition.y][this.robotPosition.x + 1] !== 3) {
           this.robotPosition.x++;
           this.robotPosition.isInWall = 'blue';
-        }else if (this.grid[this.robotPosition.y][this.robotPosition.x + 1] == 5){
-          this.robotPosition.isInWall = 'green';
+           if (this.grid[this.robotPosition.y][this.robotPosition.x + 1] == 5) {
+             this.robotPosition.isInWall = 'green';
+           }
         }else {
           this.robotPosition.isInWall = 'red';
         }
@@ -90,8 +91,9 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
         if (this.grid[this.robotPosition.y + 1][this.robotPosition.x] !== 3) {
           this.robotPosition.y++;
           this.robotPosition.isInWall = 'blue';
-        }else if (this.grid[this.robotPosition.y+1][this.robotPosition.x] == 5){
-          this.robotPosition.isInWall = 'green';
+          if (this.grid[this.robotPosition.y+1][this.robotPosition.x] == 5) {
+            this.robotPosition.isInWall = 'green';
+          }
         }else {
           this.robotPosition.isInWall = 'red';
         }
@@ -100,9 +102,9 @@ export class HtmlForComponent implements OnInit ,AfterViewInit{
         if (this.grid[this.robotPosition.y][this.robotPosition.x - 1] !== 3) {
           this.robotPosition.x--;
           this.robotPosition.isInWall = 'blue';
-        }else if (this.grid[this.robotPosition.y][this.robotPosition.x- 1] == 5){
+         if (this.grid[this.robotPosition.y][this.robotPosition.x- 1] == 5){
           this.robotPosition.isInWall = 'green';
-        }else {
+        }}else {
           this.robotPosition.isInWall = 'red';
         }
         break;
