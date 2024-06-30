@@ -1,8 +1,13 @@
 <!--<div style="width: 500px;height: 300px;">-->
 <!--  <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>-->
 <!--</div>-->
-<div style="padding: 10px">
+<!--<button (click)="zoomIn()">放大</button>-->
+<!--<button (click)="zoomOut()">缩小</button>-->
 
-  <canvas #myCanvas width="20" height="20"></canvas>
+<div style="width: 800px;height: 100vh;overflow-x: scroll;overflow-y:scroll">
+  <div  #DDic>
+    <canvas #myCanvas ></canvas>
+  </div>
+
 </div>
 

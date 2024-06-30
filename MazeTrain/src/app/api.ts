@@ -44,8 +44,8 @@ export class Maze {
 }
 
 export class PrimGenerator {
-  private mazeWidth: number = 200;
-  private mazeHeight: number = 200;
+  private mazeWidth: number = 170;
+  private mazeHeight: number = 170;
   private primGrid: CellType[][] = [];
   private frontierList: Point[] = [];
 
