@@ -2,7 +2,7 @@
 
 [简体中文](./README_ZH.md) | English
 
-<img src="./docs/images/img.png">
+<img src="images/img.png">
 
 This project is inspired by [this project](https://github.com/mbg/maze), and I have implemented the maze in the web using Angular. The project allows you to control the maze direction by writing functions and generate mazes by creating your own 2D arrays. You can get a preview by clicking the links below.
 
@@ -69,7 +69,7 @@ Note: url encoder
 
 Note that two consecutive underscores `__` will be replaced with a component parameter, as shown in the image below:
 
-<img src="./docs/images/img_2.png">
+<img src="images/img_2.png">
 
 ## Future Plans
 
