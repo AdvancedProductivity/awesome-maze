@@ -1,6 +1,6 @@
 # awesome-maze
 
-<img src="./docs/images/img.png">
+<img src="images/img.png">
 
 这个项目受到了[这个项目](https://github.com/mbg/maze）的启发，我用Angular在web端来实现迷宫。
 该项目可以通过编写函数控制迷宫走向，还可以通过自己生成二维数组来生成迷宫。
@@ -69,7 +69,7 @@ https://advancedproductivity.github.io/awesome-maze/#/html?q=我已经碰壁__�
 请注意，两个连续的下划线`__`会被替换成一个组件参数，如下图：
 
 
-<img src="./docs/images/img_1.png">
+<img src="images/img_1.png">
 
 
 ## 后续
