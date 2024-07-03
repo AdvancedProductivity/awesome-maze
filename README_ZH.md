@@ -1,5 +1,7 @@
 # awesome-maze
 
+[English](./README.md) | 简体中文
+
 <img src="images/img.png">
 
 这个项目受到了[这个项目](https://github.com/mbg/maze）的启发，我用Angular在web端来实现迷宫。
