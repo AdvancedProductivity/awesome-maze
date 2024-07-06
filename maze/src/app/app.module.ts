@@ -17,12 +17,14 @@ import { RootComponent } from './root/root.component';
 registerLocaleData(en);
 import { NzSliderModule } from 'ng-zorro-antd/slider';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { InfiniteComponent } from './infinite/infinite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HtmlForComponent,
-    RootComponent
+    RootComponent,
+    InfiniteComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<div class="container">
+  <canvas id="canvas" #myCanvas ></canvas>
+
+  <div id="controls">
+    <button type="button" (click)="infiniteCanvas.zoom(1.05)" id="zoom-in">+</button>
+    <button type="button" (click)="infiniteCanvas.zoom(0.95)" id="zoom-out">-</button>
+    <button type="button" (click)="infiniteCanvas.offsetLeft(10)" id="move-left"><-</button>
+    <button type="button" (click)="infiniteCanvas.offsetRight(10)" id="move-right">-></button>
+    <button type="button" (click)="infiniteCanvas.offsetUp(10)" id="move-up">^</button>
+    <button type="button" (click)="infiniteCanvas.offsetDown(10)" id="move-down">v</button>
+  </div>
+</div>
