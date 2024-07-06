@@ -10,6 +10,7 @@ export class RootComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    (window as any).__fastLoader.destroy();
   }
 
 }
