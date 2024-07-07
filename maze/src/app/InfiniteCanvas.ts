@@ -97,9 +97,9 @@ export class InfiniteCanvas {
       this.#onTouchMove(event.touches)
     );
 
-    window.addEventListener("resize", () => this.#draw());
+    canvas.addEventListener("resize", () => this.#draw());
 
-    window.addEventListener("wheel", (e) => {
+    canvas.addEventListener("wheel", (e) => {
       e.preventDefault();
       console.log('sss', e.ctrlKey, e.deltaY, e.deltaX);
       if (e.ctrlKey) {
